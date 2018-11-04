@@ -23,6 +23,15 @@ namespace CA2_Screen_Design_UI
         public MainWindow()
         {
             InitializeComponent();
+             
+
+
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
-}
+    }
+

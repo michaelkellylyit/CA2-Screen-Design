@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CA2_Screen_Design_UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Title="MainWindow" Height="450" Width="800" Background="#FFDEE0E0" MaxHeight="350" MaxWidth="220">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Username" FontFamily="Calibri" FontWeight="Bold"/>
+            <TextBox Name="tbxUsername" Margin="1" Height="25" ToolTip="Enter Username"/>
+            <Label Content="Password" FontFamily="Calibri" FontWeight="Bold"/>
+            <PasswordBox Name="tbxPassword" Margin="1" Height="25" ToolTip="Enter Password" Background="White"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
+            <Button Name="btnLogin" Content="Login" Height="26" Width="60" 
+                    Margin="10,10" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold">
+            </Button>
+            <Button Name="btnCreateReset" Content="Create Account/Reset Password" Height="26" Width="180" 
+                    Margin="10,50" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold" Background="#FF1EA24F">
+            </Button>
+        </StackPanel>
+
+
+
     </Grid>
 </Window>
