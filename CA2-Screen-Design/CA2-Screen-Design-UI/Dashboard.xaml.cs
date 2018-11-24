@@ -10,33 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CA2_Screen_Design_UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Dashboard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Dashboard : Window
     {
-        public MainWindow()
+        public Dashboard()
         {
             InitializeComponent();
-             
-
-
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void BtnCreateReset_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
 
         }
     }
-    }
-
+}
