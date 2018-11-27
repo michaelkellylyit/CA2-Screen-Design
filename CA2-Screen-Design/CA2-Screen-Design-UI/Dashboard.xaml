@@ -10,7 +10,7 @@
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Calibri" />
-            <Setter Property="FontSize" Value="8pt" />
+            <Setter Property="FontSize" Value="10pt" />
             <Setter Property="Background" Value="LightGray" />
             <Setter Property="Foreground" Value="Black" />
             
@@ -30,20 +30,44 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Grid.Column="0">
-                <Button x:Name="btnHome" Content="Home" Width="60" Height="30" HorizontalAlignment="left" Margin="10,10,10,10"/>
+                <Button Name="btnHome" Width="50" Height="30" 
+                        HorizontalAlignment="left" 
+                        Margin="10,10,10,10">
+                   
+                    <Image Source="Images/Home Icon.Png"/>
+
+                </Button>
 
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1">
-                <ComboBox IsEditable="True" x:Name="cboSearchBrowse" Height="30" Width="250" Margin="10,10,0,0"/>
+                <ComboBox IsEditable="True" Name="cboSearchBrowse" Height="30" Width="250" 
+                          Margin="10,10,0,0" SelectionChanged="CboSearchBrowse_SelectionChanged">
+                    <Menu Name="mnuMainmenu" HorizontalAlignment="Stretch">
+                        <MenuItem Header="_Search">
+                            <MenuItem Header="Search for..."/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Name="tbxSearchFor" Width="150"/>
+                                <Button Name="btnSearch" Content="Search" Width="50" Margin="10,0,0,0"/>
+                            </StackPanel>
+                            <Separator/>
+                            <MenuItem Header="_Reset"/>
+
+                        </MenuItem>
+
+                    </Menu>
+
+                </ComboBox>
 
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="2">
-                <Button x:Name="btnSupport" Height="30" Width="80" Content="Support?" 
+                <Button Name="btnSupport" Height="30" Width="80" Content="Support?" 
                         HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"/>
 
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">
-                <Button x:Name="btnLogout" Height="30" Width="60" Content="Logout" Margin="10" HorizontalAlignment="Center"/>
+                <Button Name="btnLogout" Height="30" Width="50" Margin="10" HorizontalAlignment="Center">
+                    <Image Source="Images/logout icon.png"/>
+                </Button>
             </StackPanel>
             
             <DockPanel Grid.Row="1" Grid.ColumnSpan="4">
@@ -54,6 +78,11 @@
                 </Border>
                 
             </DockPanel>
+            <!-- Search Function -->
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+                
+                
+            </StackPanel>
             
        
 

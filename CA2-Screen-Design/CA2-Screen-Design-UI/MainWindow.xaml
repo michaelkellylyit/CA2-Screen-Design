@@ -11,7 +11,6 @@
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Calibri" />
-            <Setter Property="FontSize" Value="8pt" />
             <Setter Property="Background" Value="LightGray" />
             <Setter Property="Foreground" Value="Black" />
 
@@ -55,7 +54,7 @@
                     Margin="0,50" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
-                    FontWeight="Bold" Background="#FF1EA24F">
+                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
             </Button>
         </StackPanel>
 

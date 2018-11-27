@@ -15,28 +15,13 @@ using System.Windows.Shapes;
 namespace CA2_Screen_Design_UI
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for CreateAccount.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class CreateAccount : Window
     {
-        public Dashboard()
+        public CreateAccount()
         {
             InitializeComponent();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void CboSearchBrowse_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
