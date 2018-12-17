@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA2-Screen-Design-UI", "CA2-Screen-Design-UI\CA2-Screen-Design-UI.csproj", "{F077DB49-CDC5-4413-B838-9B807D78BFA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "DatabaseLibrary\DatabaseLibrary.csproj", "{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F077DB49-CDC5-4413-B838-9B807D78BFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F077DB49-CDC5-4413-B838-9B807D78BFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F077DB49-CDC5-4413-B838-9B807D78BFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace CA2_Screen_Design_UI
     /// </summary>
     public partial class Dashboard : Window
     {
+        public User user = new User();
         public Dashboard()
         {
             InitializeComponent();
@@ -37,6 +39,24 @@ namespace CA2_Screen_Design_UI
         private void CboSearchBrowse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CheckUserAccess(User user)
+        {
+            if (user.LevelID == 1)
+            {
+                btnAdmin.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckUserAccess(user);
         }
     }
 }

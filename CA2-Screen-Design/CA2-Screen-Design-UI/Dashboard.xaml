@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CA2_Screen_Design_UI"
         mc:Ignorable="d"
-        WindowState="Maximized"
+        WindowState="Normal" 
+        WindowStyle="None"
+        Loaded="Window_Loaded"  
         Title="Dashboard" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="Button">
@@ -59,13 +61,16 @@
                 </ComboBox>
 
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="2">
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
                 <Button Name="btnSupport" Height="30" Width="80" Content="Support?" 
                         HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"/>
-
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <Button Name="btnAdmin" Height="30" Width="80" Content="Admin"
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Visibility="Collapsed"/>
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">
-                <Button Name="btnLogout" Height="30" Width="50" Margin="10" HorizontalAlignment="Center">
+                <Button Name="btnLogout" Height="30" Width="50" Margin="10" HorizontalAlignment="Center" Click="BtnLogout_Click"> 
                     <Image Source="Images/logout icon.png"/>
                 </Button>
             </StackPanel>
