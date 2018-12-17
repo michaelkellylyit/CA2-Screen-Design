@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CA2_Screen_Design_UI"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
         Title="CreateAccount" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Foreground" Value="Black" />
+
+
+        </Style>
+    </Window.Resources>
+    <Border Padding="10" BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Opacity=".50" ShadowDepth="2"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center">  
+                <Label Content="Username" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBox x:Name="tbxUsername" Margin="1" Padding="5" ToolTip="Enter Username" Height="30" Width="300"/>
+                <Label Content="Email" FontFamily="Calibri" FontWeight="Bold" />
+                <TextBox x:Name="tbxEmail" Margin="1" Padding="5" ToolTip="Enter Email" Height="30" Width="300"/>
+                <Label Content="Password" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBox x:Name="tbxPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
+                <Label Content="Re-enter Password" FontFamily="Calibri" FontWeight="Bold" />
+                <TextBox x:Name="tbxReenterPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
+                <Button Name="btnCreate" Content="Create" Click="BtnCreate_Click" Height="26" Width="180" 
+                    Margin="0,50" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
+                </Button> 
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">
+                <Label Content=" Reset Password" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBox x:Name="tbxResetPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
+                <Button Name="btnResetPassword" Content="Reset Password" Click="BtnResetPassword_Click" Height="26" Width="180" 
+                    Margin="0,50" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
+                </Button>
+                <Button Name="btnBackToLogin" Content="Back To Login" Height="26" Width="80" 
+                    Margin="0,50" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10" Click="BtnBackToLogin_Click" />
+
+            </StackPanel>
+           
+
+        </Grid>
+    </Border>
 </Window>

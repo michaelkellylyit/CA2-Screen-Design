@@ -44,19 +44,42 @@ namespace CA2_Screen_Design_UI
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Environment.Exit(0);
         }
 
         private void CheckUserAccess(User user)
         {
             if (user.LevelID == 1)
             {
-                btnAdmin.Visibility = Visibility.Visible;
+                mnuAdminMenu.Visibility = Visibility.Visible;
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CheckUserAccess(user);
+        }
+
+        private void BtnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MnuLogs_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Menu option is checked");
+        }
+
+        private void MnuUsers_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Menu option is checked");
+        }
+
+
+        private void MnuAdminControl_Click(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            frmMain.Navigate(admin);
         }
     }
 }

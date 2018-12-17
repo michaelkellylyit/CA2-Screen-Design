@@ -39,8 +39,9 @@ namespace CA2_Screen_Design_UI
                 if (user.Username == currentUser && user.Password == currentPassword)
                 {
                     Dashboard dashboard = new Dashboard();
-                    dashboard.user = user;
+                    dashboard.Owner = this;
                     dashboard.ShowDialog();
+                    dashboard.user = user;
                     this.Hide();
                 }
                 else
@@ -53,6 +54,12 @@ namespace CA2_Screen_Design_UI
         private void BtnCreateReset_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Environment.Exit(0);
         }
     }
     }

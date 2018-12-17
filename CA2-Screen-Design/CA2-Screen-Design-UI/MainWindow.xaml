@@ -36,29 +36,38 @@
 
         </Grid.RowDefinitions>
 
+
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label Content="Username" FontFamily="Calibri" FontWeight="Bold"/>
-            <TextBox x:Name="tbxUsername" Margin="1" Padding="5" ToolTip="Enter Username"/>
-            <Label Content="Password" FontFamily="Calibri" FontWeight="Bold"/>
-                <Label Name="lblErrorMessage" Content=""></Label>
-                <PasswordBox x:Name="tbxPassword" Margin="1" Padding="5" ToolTip="Enter Password" Background="White"/>
+                <Label Name="lblErrorMessage" Content="" Height="30" Width="180"></Label>
+                <Label Content="Username" FontFamily="Calibri" FontWeight="Bold"/>
+            <TextBox Name="tbxUsername" Margin="1" Padding="5" ToolTip="Enter Username"/>
+                <Label Content="Password" FontFamily="Calibri" FontWeight="Bold"/>
+                <PasswordBox Name="tbxPassword" Margin="1" Padding="5" ToolTip="Enter Password" Background="White"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-            <Button x:Name="btnLogin" Content="Login" Click="btnLogin_Click" Height="26" Width="60" 
+            <Button Name="btnLogin" Content="Login" Click="btnLogin_Click" Height="26" Width="60" 
                     Margin="10,10" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
                     FontWeight="Bold">
             </Button>
-                
-                <Button x:Name="btnCreateReset" Content="Create Account/Reset Password" Click="BtnCreateReset_Click" Height="26" Width="180" 
+
+                <Button Name="btnCreateReset" Content="Create Account/Reset Password" Click="BtnCreateReset_Click" Height="26" Width="180" 
                     Margin="0,50" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
                     FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
-            </Button>
-              
+                </Button>
+
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <Button Name="btnQuit" Content="Quit" Click="BtnQuit_Click" Height="26" Width="60" 
+                    Margin="0,50" 
+                    BorderThickness="2" 
+                    FontFamily="Calibri" 
+                    FontWeight="Bold" Background="#FFD11010" FontSize="10">
+                </Button>
             </StackPanel>
 
 

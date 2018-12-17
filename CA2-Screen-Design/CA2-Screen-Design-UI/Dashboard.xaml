@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CA2_Screen_Design_UI"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         WindowState="Normal" 
         WindowStyle="None"
         Loaded="Window_Loaded"  
@@ -18,8 +19,19 @@
             
 
         </Style>
+        <Style TargetType="Menu">
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="10pt" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Foreground" Value="Black" />
+
+
+        </Style>
     </Window.Resources>
-    <Border Padding="10">
+    <Border Padding="10" BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Opacity=".50" ShadowDepth="2"/>
+        </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
@@ -31,46 +43,59 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0">
-                <Button Name="btnHome" Width="50" Height="30" 
+            <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                <Button Name="btnHome" Width="40" Height="30" 
                         HorizontalAlignment="left" 
-                        Margin="10,10,10,10">
+                        Margin="10,10,10,10" 
+                        BorderThickness="2"
+                        Background="#FF1EA24F">
                    
                     <Image Source="Images/Home Icon.Png"/>
 
                 </Button>
 
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="1">
-                <ComboBox IsEditable="True" Name="cboSearchBrowse" Height="30" Width="250" 
-                          Margin="10,10,0,0" SelectionChanged="CboSearchBrowse_SelectionChanged">
-                    <Menu Name="mnuMainmenu" HorizontalAlignment="Stretch">
-                        <MenuItem Header="_Search">
-                            <MenuItem Header="Search for..."/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox Name="tbxSearchFor" Width="150"/>
-                                <Button Name="btnSearch" Content="Search" Width="50" Margin="10,0,0,0"/>
-                            </StackPanel>
-                            <Separator/>
-                            <MenuItem Header="_Reset"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+                <Menu Name="mnuMainmenu" HorizontalAlignment="Stretch">
+                    <MenuItem Header="_Search" Height="30" Width="80" BorderThickness="2" Background="LightGray">
+                        <MenuItem Header="Search for..."/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="tbxSearchFor" Width="150"/>
+                            <Button Name="btnSearch" Content="Search" Width="50" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <Separator/>
+                        <MenuItem Header="_Reset" 
+                         Height="20" Width="130"
+                         Margin="10" HorizontalAlignment="Left"
+                         BorderThickness="2"
+                        Background="#FF1EA24F"/>
 
-                        </MenuItem>
-
-                    </Menu>
-
-                </ComboBox>
-
+                    </MenuItem>
+                </Menu>
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
                 <Button Name="btnSupport" Height="30" Width="80" Content="Support?" 
-                        HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"/>
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" BorderThickness="2"/>
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="2">
-                <Button Name="btnAdmin" Height="30" Width="80" Content="Admin"
-                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Visibility="Collapsed"/>
+            <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Center">
+                <Menu Name="mnuAdminMenu" HorizontalAlignment="Right">
+                    <MenuItem Header="_Admin" Height="30" Width="80" BorderThickness="2" Background="LightGray">
+                        
+                        <MenuItem Name="mnuAdminControl" Header="Admin Control" BorderThickness="2" Click="MnuAdminControl_Click">
+                        
+                    </MenuItem>
+
+                    </MenuItem>
+                    
+                </Menu>
             </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">
-                <Button Name="btnLogout" Height="30" Width="50" Margin="10" HorizontalAlignment="Center" Click="BtnLogout_Click"> 
+            <StackPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Name="btnLogout" 
+                        Height="30" Width="40" 
+                        Margin="10" HorizontalAlignment="Center" 
+                        BorderThickness="2" 
+                        Background="#FFD11010"
+                        Click="BtnLogout_Click"> 
                     <Image Source="Images/logout icon.png"/>
                 </Button>
             </StackPanel>
@@ -80,6 +105,7 @@
                     <Border.Effect>
                         <DropShadowEffect Opacity=".50" ShadowDepth="2"/>
                     </Border.Effect>
+                    <Frame Name="frmMain" NavigationUIVisibility="Hidden"/>
                 </Border>
                 
             </DockPanel>

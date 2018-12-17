@@ -10,33 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CA2_Screen_Design_UI
 {
     /// <summary>
-    /// Interaction logic for CreateAccount.xaml
+    /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class CreateAccount : Window
+    public partial class Profile : Page
     {
-        public CreateAccount()
+        public Profile()
         {
             InitializeComponent();
-        }
-
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnResetPassword_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnBackToLogin_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
