@@ -24,6 +24,7 @@ namespace CA2_Screen_Design_UI
         CaProjectEntities db = new CaProjectEntities("metadata=res://*/CaProjectModel.csdl|res://*/CaProjectModel.ssdl|res://*/CaProjectModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.8;initial catalog=CA3-Project-Database-L00137447;user id=MichaelKelly;password=303808909m@;pooling=False;MultipleActiveResultSets=True;App=EntityFramework'");
 
         List<User> users = new List<User>();
+        List<Log> logs = new List<Log>();
         public Admin()
         {
             InitializeComponent();
@@ -37,9 +38,15 @@ namespace CA2_Screen_Design_UI
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             lstUserList.ItemsSource = users;
+            lstLogList.ItemsSource = logs;
             foreach (var user in db.Users)
             {
                 users.Add(user);
+            }
+
+            foreach (var log in db.Logs)
+            {
+                logs.Add(log);
             }
         }
     }
