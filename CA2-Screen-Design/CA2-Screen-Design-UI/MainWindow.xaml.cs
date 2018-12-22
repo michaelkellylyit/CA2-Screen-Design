@@ -24,13 +24,24 @@ namespace CA2_Screen_Design_UI
     public partial class MainWindow : Window
     {
         CaProjectEntities db = new CaProjectEntities("metadata=res://*/CaProjectModel.csdl|res://*/CaProjectModel.ssdl|res://*/CaProjectModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.8;initial catalog=CA3-Project-Database-L00137447;user id=MichaelKelly;password=303808909m@;pooling=False;MultipleActiveResultSets=True;App=EntityFramework'");
+
+        
+
         public MainWindow()
         {
             InitializeComponent();
 
 
+        }
+        private void BtnCreateReset_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAccount createAccount = new CreateAccount();
+            createAccount.Show();
+            this.Hide();
+            
 
         }
+
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +62,7 @@ namespace CA2_Screen_Design_UI
                         user = validatedUser,
                         Owner = this
                     };
-                    dashboard.ShowDialog();
+                    dashboard.Show();
                     this.Hide();
                 }
                 else
@@ -165,10 +176,7 @@ namespace CA2_Screen_Design_UI
             db.SaveChanges();
         }
         
-        private void BtnCreateReset_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void BtnQuit_Click(object sender, RoutedEventArgs e)
         {

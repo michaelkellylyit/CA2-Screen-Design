@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
-        Title="CreateAccount" Height="450" Width="800">
+        Title="CreateAccount" Height="420" Width="500" Background="#FFDAECF0">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -35,36 +35,42 @@
                 <RowDefinition Height="auto"/>
 
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center">  
+            <StackPanel Name="stkUserCreateInfo" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center">  
                 <Label Content="Username" FontFamily="Calibri" FontWeight="Bold"/>
-                <TextBox x:Name="tbxUsername" Margin="1" Padding="5" ToolTip="Enter Username" Height="30" Width="300"/>
+                <TextBox x:Name="tbxUsername" Margin="1" Padding="5" ToolTip="Enter Username" Height="30" Width="200"/>
+                <Label Content="Firstname" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBox x:Name="tbxFirstname" Margin="1" Padding="5" ToolTip="Enter Username" Height="30" Width="200"/>
+                <Label Content="Surname" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBox x:Name="tbxSurname" Margin="1" Padding="5" ToolTip="Enter Username" Height="30" Width="200"/>
                 <Label Content="Email" FontFamily="Calibri" FontWeight="Bold" />
-                <TextBox x:Name="tbxEmail" Margin="1" Padding="5" ToolTip="Enter Email" Height="30" Width="300"/>
+                <TextBox x:Name="tbxEmail" Margin="1" Padding="5" ToolTip="Enter Email" Height="30" Width="200"/>
                 <Label Content="Password" FontFamily="Calibri" FontWeight="Bold"/>
-                <TextBox x:Name="tbxPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
+                <TextBox x:Name="tbxPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="200"/>
                 <Label Content="Re-enter Password" FontFamily="Calibri" FontWeight="Bold" />
-                <TextBox x:Name="tbxReenterPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
-                <Button Name="btnCreate" Content="Create" Click="BtnCreate_Click" Height="26" Width="180" 
-                    Margin="0,50" 
+                <TextBox x:Name="tbxReenterPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="200"/>
+                <Button Name="btnCreate" Content="Create" Click="BtnCreate_Click" Height="26" Width="80" 
+                    Margin="20" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
-                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
+                    FontWeight="Bold" Background="#FFF1ED64" FontSize="10">
                 </Button> 
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">
                 <Label Content=" Reset Password" FontFamily="Calibri" FontWeight="Bold"/>
-                <TextBox x:Name="tbxResetPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="300"/>
-                <Button Name="btnResetPassword" Content="Reset Password" Click="BtnResetPassword_Click" Height="26" Width="180" 
-                    Margin="0,50" 
+                <TextBox x:Name="tbxResetPassword" Margin="1" Padding="5" ToolTip="Enter Password" Height="30" Width="200"/>
+                <Button Name="btnResetPassword" Content="Reset Password" Click="BtnResetPassword_Click" Height="26" Width="80" 
+                    Margin="20" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
-                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10">
+                    FontWeight="Bold" Background="#FFF1ED64" FontSize="10">
                 </Button>
                 <Button Name="btnBackToLogin" Content="Back To Login" Height="26" Width="80" 
-                    Margin="0,50" 
+                    Margin="10" 
                     BorderThickness="2" 
                     FontFamily="Calibri" 
-                    FontWeight="Bold" Background="#FF1EA24F" FontSize="10" Click="BtnBackToLogin_Click" />
+                    FontWeight="Bold" Background="#FFF1ED64" FontSize="10" 
+                    Click="BtnBackToLogin_Click" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
             </StackPanel>
            

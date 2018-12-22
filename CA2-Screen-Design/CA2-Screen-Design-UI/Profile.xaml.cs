@@ -25,4 +25,5 @@ namespace CA2_Screen_Design_UI
             InitializeComponent();
         }
     }
+    
 }

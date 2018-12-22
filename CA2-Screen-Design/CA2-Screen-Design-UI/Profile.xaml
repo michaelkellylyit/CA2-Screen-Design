@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CA2_Screen_Design_UI"
       mc:Ignorable="d"   
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Profile">
+      d:DesignHeight="400" d:DesignWidth="800"
+      Title="Profile" Background="#FFDAECF0">
     <Page.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Calibri" />
@@ -17,7 +17,7 @@
         </Style>
     </Page.Resources>
     
-    <Border Padding="10" BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+    <Border Padding="2" BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
         <Border.Effect>
             <DropShadowEffect Opacity=".50" ShadowDepth="2"/>
         </Border.Effect>
@@ -25,15 +25,241 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+
+            <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="4" Background="#FFDAECF0">
+                <TabControl Height="600" Background="#FFCDE4EA">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="FontSize" Value="10"/>
+                            <Setter Property="FontFamily" Value="Calibri"/>
+                            <Setter Property="BorderBrush" Value="black"/>
+                            <Setter Property="Padding" Value="10"/>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem Header="Profile">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="200"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="5" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
+                                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Background="#FFDAECF0">
+                                    <Image Source="Images/Profile icon.png" Height="30" Width="50" Margin="10,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                        <TextBox Height="20" Width="60" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="{Binding Username}"/>
+
+
+                                        <Button Name="btnFavourite" Content="Add Favourite" Height="26" Width="100" 
+                                         Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF1ED64">
+                                            
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                </StackPanel>
+                            </Border>
+                            <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" >
+                                <Button Name="btnEdit" Content="Edit" Height="20" Width="50" 
+                                 Margin="10,5" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+
+                                <Button Name="btnSave" Content="Save" Height="20" Width="50" 
+                                 Margin="10,5" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+                                <StackPanel Height="150">
+                                    <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
+                                        <TextBlock Height="90" Width="350" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                        <Label Content="Bio:"/>
+
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical">
+                                <Label Content="Favourites:" FontFamily="Calibri" FontWeight="Bold" FontSize="12"/>
+                                <ComboBox Height="20" Width="150">
+                                    
+                                </ComboBox>
+                                  
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical">
+                                <Label Content="Genre:" FontFamily="Calibri" FontWeight="Bold" FontSize="12"/>
+                                <ComboBox Height="20" Width="150">
+                                    
+                                </ComboBox>
+                            </StackPanel>
+
+
+
+
+                        </Grid>
+                        
+
+                    </TabItem>
+                    <TabItem Header="Projects">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <Label Content="Project1:" Height="30" Width="50" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
+
+                                    <Button Name="btnFavourit" Content="Create Project" Height="26" Width="80" 
+                                         Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF1ED64">
+
+                                    </Button>
+                                    <Button Name="btnUpload1" Content="Upload" Height="26" Width="60" Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF36841">
+                                        
+                                    </Button>
+                                    <Button Name="btnDownload1" Content="Download" Height="26" Width="60" Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF36841">
+
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <Label Content="Project2:" Height="30" Width="50" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+
+
+                                    <Button Name="btnFavourt" Content="Create Project" Height="26" Width="80" 
+                                         Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF1ED64">
+
+                                    </Button>
+                                    <Button Name="btnUpload2" Content="Upload" Height="26" Width="60" Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF36841">
+
+                                    </Button>
+                                    <Button Name="btnDownload2" Content="Download" Height="26" Width="60" Margin="10"
+                                         BorderThickness="2" 
+                                         FontFamily="Calibri" 
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Right" Background="#FFF36841">
+
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                <Button Name="btnEdi" Content="Edit" Height="26" Width="80" 
+                                 Margin="10,10" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+
+                                <Button Name="btnSav" Content="Save" Height="26" Width="80" 
+                                 Margin="10,10" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+                                <StackPanel Height="150" >
+                                    <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
+                                        <TextBlock Height="90" Width="310" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                        <Label Content="Description:"/>
+
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                            
+
+
+                            <StackPanel Grid.Column="0" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                <Button Name="btndi" Content="Edit" Height="26" Width="80" 
+                                 Margin="10,10" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+
+                                <Button Name="btnSv" Content="Save" Height="26" Width="80" 
+                                 Margin="10,10" 
+                                 BorderThickness="2" 
+                                 FontFamily="Calibri" 
+                                 FontWeight="Bold" Background="#FFF1ED64">
+                                </Button>
+                                
+                                <StackPanel Height="150">
+                                    <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
+                                        <TextBlock Height="90" Width="310" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                        <Label Content="Description:"/>
+
+                                        </TextBlock>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                            
+
+
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+            </StackPanel>
 
 
         </Grid>

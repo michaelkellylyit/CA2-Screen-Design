@@ -81,5 +81,11 @@ namespace CA2_Screen_Design_UI
             Admin admin = new Admin();
             frmMain.Navigate(admin);
         }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            Profile profile = new Profile();
+            frmMain.Navigate(profile);
+        }
     }
 }

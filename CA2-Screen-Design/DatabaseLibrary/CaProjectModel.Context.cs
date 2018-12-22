@@ -16,7 +16,7 @@ namespace DatabaseLibrary
     public partial class CaProjectEntities : DbContext
     {
         public CaProjectEntities(string connectionString)
-            : base(connectionString) 
+            : base(connectionString)
         {
         }
     
