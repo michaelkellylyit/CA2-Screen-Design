@@ -177,6 +177,7 @@ namespace CA2_Screen_Design_UI
         }
         
         
+        
 
         private void BtnQuit_Click(object sender, RoutedEventArgs e)
         {

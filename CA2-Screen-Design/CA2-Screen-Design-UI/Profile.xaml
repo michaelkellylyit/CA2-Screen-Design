@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CA2_Screen_Design_UI"
-      mc:Ignorable="d"   
+      mc:Ignorable="d"  
+      Loaded="Page_Loaded"
       d:DesignHeight="400" d:DesignWidth="800"
       Title="Profile" Background="#FFDAECF0">
     <Page.Resources>
@@ -56,12 +57,13 @@
                                 <ColumnDefinition Width="400"/>
                                 <ColumnDefinition Width="200"/>
                             </Grid.ColumnDefinitions>
-                            <Border Padding="5" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
-                                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Background="#FFDAECF0">
-                                    <Image Source="Images/Profile icon.png" Height="30" Width="50" Margin="10,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                                        <TextBox Height="20" Width="60" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="{Binding Username}"/>
+                            <Border Padding="1" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
+                                
+                                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Background="#FFDAECF0" >
+                                    
 
+                                    <Image Source="Images/Profile icon.png" Height="30" Width="50" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
 
                                         <Button Name="btnFavourite" Content="Add Favourite" Height="26" Width="100" 
                                          Margin="10"
@@ -70,46 +72,104 @@
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
                                          HorizontalAlignment="Right" Background="#FFF1ED64">
-                                            
+   
                                         </Button>
+                                        <TextBox Height="20" Width="60" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="{Binding Username}"/>
                                     </StackPanel>
                                     
                                 </StackPanel>
                             </Border>
                             <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" >
-                                <Button Name="btnEdit" Content="Edit" Height="20" Width="50" 
-                                 Margin="10,5" 
+                                <Button Name="btnEdit" Click="BtnEdit_Click" Content="Edit" Height="20" Width="50" 
+                                 Margin="5" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
                                  FontWeight="Bold" Background="#FFF1ED64">
                                 </Button>
 
-                                <Button Name="btnSave" Content="Save" Height="20" Width="50" 
+                                <Button Name="btnSave" Click="BtnSave_Click"  Content="Save" Height="20" Width="50" 
                                  Margin="10,5" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
                                  FontWeight="Bold" Background="#FFF1ED64">
                                 </Button>
                                 <StackPanel Height="150">
-                                    <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
-                                        <TextBlock Height="90" Width="350" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                                        <Label Content="Bio:"/>
+                                    <Label FontFamily="Calibri" 
+                                     FontWeight="Bold" Content="Bio:"/>
+                                    <Border Padding="2" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
+                                        <ListView Name="lstUserBio" SelectionChanged="LstUserBio_SelectionChanged">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn>
+                                                        <TextBox TextWrapping="Wrap" Text="{Binding UserProfile}">
 
-                                        </TextBlock>
+                                                        </TextBox>
+                                                    </GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        
                                     </Border>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Grid.Column="1" Grid.Row="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical">
+                            
+                            <StackPanel Grid.Column="1" Grid.Row="0" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Vertical">
+                                <ListView Name="lstFavourites" Grid.Column="1" Grid.Row="0" Height="80" Background="#FFF1ED64">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Favourites" Width="150">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Username}">
+
+                                                        </TextBlock>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
                                 <Label Content="Favourites:" FontFamily="Calibri" FontWeight="Bold" FontSize="12"/>
-                                <ComboBox Height="20" Width="150">
+                                <ComboBox Name="cboFavourites" Height="20" Width="150">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Favourites}"/>
+                                        </DataTemplate>
+                                        
+                                    </ComboBox.ItemTemplate>
                                     
                                 </ComboBox>
-                                  
+
+                                
                             </StackPanel>
-                            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical">
+                            
+                            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Vertical">
+                                <ListView Name="lstGenre"  Grid.Column="1" Grid.Row="1" Height="50">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Genre" Width="150">
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Genre}">
+                                                            
+                                                        </TextBlock>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
                                 <Label Content="Genre:" FontFamily="Calibri" FontWeight="Bold" FontSize="12"/>
-                                <ComboBox Height="20" Width="150">
+                                <ComboBox Name="cboGenre" Height="25" Width="150" SelectedIndex="0">
                                     
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Genretype}"/>
+                                            
+                                        </DataTemplate>
+
+                                    </ComboBox.ItemTemplate>
+
                                 </ComboBox>
                             </StackPanel>
 
@@ -142,7 +202,7 @@
                                     <Label Content="Project1:" Height="30" Width="50" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
 
-                                    <Button Name="btnFavourit" Content="Create Project" Height="26" Width="80" 
+                                    <Button Name="btnCreateproj1" Click="BtnCreateproj1_Click" Content="Create Project" Height="26" Width="80" 
                                          Margin="10"
                                          BorderThickness="2" 
                                          FontFamily="Calibri" 
@@ -156,7 +216,7 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841">
+                                         HorizontalAlignment="Right" Background="#FFF36841" Visibility="Visible" Click="BtnUpload1_Click">
                                         
                                     </Button>
                                     <Button Name="btnDownload1" Content="Download" Height="26" Width="60" Margin="10"
@@ -175,7 +235,7 @@
                                     <Label Content="Project2:" Height="30" Width="50" Margin="10" FontFamily="Calibri" FontWeight="Bold" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
 
-                                    <Button Name="btnFavourt" Content="Create Project" Height="26" Width="80" 
+                                    <Button Name="btnCreateProj2" Click="BtnCreateProj2_Click" Content="Create Project" Height="26" Width="80" 
                                          Margin="10"
                                          BorderThickness="2" 
                                          FontFamily="Calibri" 
@@ -189,7 +249,7 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841">
+                                         HorizontalAlignment="Right" Background="#FFF36841" Click="BtnUpload2_Click">
 
                                     </Button>
                                     <Button Name="btnDownload2" Content="Download" Height="26" Width="60" Margin="10"

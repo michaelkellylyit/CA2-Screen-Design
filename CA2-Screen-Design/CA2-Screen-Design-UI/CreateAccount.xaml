@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
-        Title="CreateAccount" Height="420" Width="500" Background="#FFDAECF0">
+        Title="CreateAccount" Height="430" Width="500" Background="#FFDAECF0">
 
     <Window.Resources>
         <Style TargetType="Button">

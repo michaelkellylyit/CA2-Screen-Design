@@ -15,7 +15,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <TabControl Height="600">
+            <TabControl Height="600" >
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="FontSize" Value="10"/>
@@ -24,6 +24,7 @@
                         <Setter Property="Padding" Value="10"/>
                     </Style>
                 </TabControl.Resources>
+                <!-- Logs tab-->
                 <TabItem Header="Logs">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -76,11 +77,13 @@
                     </Grid>
 
                 </TabItem>
+                <!-- Users tab-->
                 <TabItem Header="Users" Background="#FFCDE4EA">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="114*"/>
+                            <ColumnDefinition Width="283*"/>
+                            <ColumnDefinition Width="398*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -88,7 +91,7 @@
                             <RowDefinition Height="50"/>
 
                         </Grid.RowDefinitions>
-                        <ListView Name="lstUserList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Background="#FFCDE4EA">
+                        <ListView Name="lstUserList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#FFCDE4EA" SelectionChanged="LstUserList_SelectionChanged" Margin="0,0,0.4,60.6">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Username" Width="100">
@@ -154,6 +157,11 @@
                                                 <Image Width="20" Height="20" Stretch="Uniform" Source="images/Delete Icon.png"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
+                                        <MenuItem Header="Modify Selected User" Name="submenuModifySelectedUser" IsEnabled="False" Click="SubmenuModifySelectedUser_Click">
+                                            <MenuItem.Icon>
+                                                <Image Width="20" Height="20" Stretch="Uniform" Source="images/Reset Icon.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
                                     </ContextMenu.Items>
 
                                 </ContextMenu>
@@ -161,7 +169,7 @@
                         </ListView>
 
                         <!--Hidden Stack Panel as not using-->
-                        <StackPanel Name="stkUserInfo" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Visible"  Background="#FF95BDC8" Margin="0,0,-0.2,0">
+                        <StackPanel Name="stkUserInfo" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Visible"  Background="#FF95BDC8">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="80"/>
@@ -184,12 +192,70 @@
                                 <ComboBox Grid.Row="1" Grid.Column="1" Width="150">
                                     <ComboBoxItem Content="DeleteUser" Foreground="#FFF65050" Background="#FF95BDC8"/>
 
-                                    <ComboBoxItem Content="ResetUser" Foreground="#FFF65050" Background="#FF95BDC8"/>
+                                    <ComboBoxItem Content="ModifyUser" Foreground="#FFF65050" Background="#FF95BDC8"/>
                                 </ComboBox>
                                 <Button Name="btnUpdate" Content="Update" Grid.Row="5" Grid.Column="1" Background="#FFF1ED64"/>
 
                             </Grid>
                         </StackPanel>
+                    </Grid>
+                </TabItem >
+
+                <!-- Analysis tab-->
+                <TabItem Header="Analysis" Background="#FFCDE4EA">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Height="200" Grid.Row="0" Grid.ColumnSpan="1" Margin="5">
+                            <TextBlock Name="tbkAnalysis" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="0" Grid.Column="1"  VerticalAlignment="Top">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Row 0-->
+                                <Label Grid.Row="0" Content="Please choose analysis type" HorizontalAlignment="Center" FontFamily="Calibri" 
+                                         FontWeight="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Content="Please choose a database type" HorizontalAlignment="Center" FontFamily="Calibri" 
+                                         FontWeight="Bold"/>
+
+                                <!-- Row 1-->
+                                <ComboBox Name="cboAnalysisType" Margin="10" Grid.Row="1" Grid.Column="0" Width="150" Height="30" SelectionChanged="CboAnalysisType_SelectionChanged" SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
+                                    <ComboBoxItem Content="Please select"/>
+                                    <ComboBoxItem Content="Summary"/>
+                                    <ComboBoxItem Content="Count"/>
+                                    <ComboBoxItem Content="Statistics"/>
+                                </ComboBox>
+
+                                <ComboBox Name="cboChooseTable" Margin="10"  Grid.Row="1" Grid.Column="2" Width="150" Height="30" SelectionChanged="CboChooseTable_SelectionChanged"  SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
+                                    <ComboBoxItem Content="Please select"/>
+                                    <ComboBoxItem Content="Project"/>
+                                    <ComboBoxItem Content="User"/>
+                                    <ComboBoxItem Content="Log"/>
+                                </ComboBox>
+
+                                <!--Row 2-->
+                                <Button Name="btnAnalyze" Content="Analyze" Grid.Row="2" Grid.Column="1" Height="30" Width="150" Margin="10" BorderThickness="2" Background="#FFF1ED64" FontFamily="Calibri" 
+                                         FontWeight="Bold"/>
+                            </Grid>
+
+                        </StackPanel>
+
+
                     </Grid>
                 </TabItem>
 

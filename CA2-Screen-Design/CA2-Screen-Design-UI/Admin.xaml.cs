@@ -23,18 +23,42 @@ namespace CA2_Screen_Design_UI
     {
         CaProjectEntities db = new CaProjectEntities("metadata=res://*/CaProjectModel.csdl|res://*/CaProjectModel.ssdl|res://*/CaProjectModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.8;initial catalog=CA3-Project-Database-L00137447;user id=MichaelKelly;password=303808909m@;pooling=False;MultipleActiveResultSets=True;App=EntityFramework'");
 
+        // Database lists
         List<User> users = new List<User>();
         List<Log> logs = new List<Log>();
+        List<Project> projects = new List<Project>();
+        User selectedUser = new User();
+        private object tbxUserFirstname;
+        private string tbxSurname;
+
+        enum DBOperation
+        {
+            Add,
+            Modify,
+            Delete
+        }
+        DBOperation dbOperation = new DBOperation();
+
+        enum AnalysisType
+        {
+            Summary,
+            Count,
+            Statistics
+        }
+
+        enum TableSelected
+        {
+            Project,
+            User,
+            Log
+        }
         public Admin()
         {
             InitializeComponent();
         }
 
-        private void SubmenuDeleteSelectedUser_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
+        // Loads and displays user , project and logs lists once page is opened
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             lstUserList.ItemsSource = users;
@@ -48,6 +72,81 @@ namespace CA2_Screen_Design_UI
             {
                 logs.Add(log);
             }
+
+            foreach (var project in db.Projects)
+            {
+                projects.Add(project); 
+            }
+        }
+
+        // Used to enable right click options
+        private void LstUserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstUserList.SelectedIndex > 0)
+            {
+                selectedUser = users.ElementAt(lstUserList.SelectedIndex);
+                
+                    submenuModifySelectedUser.IsEnabled = true;
+                    submenuDeleteSelectedUser.IsEnabled = true;
+                    tbxUsername.Text = selectedUser.Username;
+                
+            }
+            
+        }
+
+        // Refreshs the user list display
+        private void RefreshUserList()
+        {
+            lstUserList.ItemsSource = users;
+            users.Clear();
+            foreach (var user in db.Users)
+            {
+                users.Add(user);
+            }
+            lstUserList.Items.Refresh();
+        }
+
+        //Clears combobox
+        private void ClearUserInfo()
+        {
+            tbxUsername.Text = "";
+        }
+
+       
+        // Not currently used, but left in as a future option
+        private void SubmenuModifySelectedUser_Click(object sender, RoutedEventArgs e)
+        {
+            dbOperation = DBOperation.Modify; 
+        }
+
+        // Operation for removing user accounts from the system and SQL database
+        private void SubmenuDeleteSelectedUser_Click(object sender, RoutedEventArgs e)
+        {
+            // Only removes users that have been selected and saves changes
+            db.Users.RemoveRange(db.Users.Where(t => t.UserID == selectedUser.UserID));
+            int saveSuccess = db.SaveChanges();
+            if (saveSuccess == 1)
+            {
+                // Conformation of account removal and user list refreshed
+                MessageBox.Show("Account Deleted", "Delete From Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                RefreshUserList();
+                ClearUserInfo();
+            }
+            else
+            {
+                // Error message to indicate a problem with removing user 
+                MessageBox.Show("Cannot Delete Account", "Delete From Database", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void CboChooseTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CboAnalysisType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
