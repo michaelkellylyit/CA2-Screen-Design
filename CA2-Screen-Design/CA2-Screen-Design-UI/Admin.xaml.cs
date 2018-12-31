@@ -38,6 +38,10 @@ namespace CA2_Screen_Design_UI
             Delete
         }
         DBOperation dbOperation = new DBOperation();
+        private AnalysisType analysisType;
+        private ChooseTable chooseTable;
+        private int recordCount;
+        private readonly object tbxAnalysisOutput;
 
         enum AnalysisType
         {
@@ -46,7 +50,7 @@ namespace CA2_Screen_Design_UI
             Statistics
         }
 
-        enum TableSelected
+        enum ChooseTable
         {
             Project,
             User,
@@ -140,13 +144,110 @@ namespace CA2_Screen_Design_UI
         }
 
         private void CboChooseTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {   
+            // Check that an option has been selected.
+            // The default selection will remain as please select if no option selected
+            if (cboChooseTable.SelectedIndex > 0)
+            {
+                if (cboChooseTable.SelectedIndex == 1)
+                {
+                    chooseTable = ChooseTable.Project;
+                }
+                if (cboChooseTable.SelectedIndex == 2)
+                {
+                    chooseTable = ChooseTable.User;
+                }
+                if (cboChooseTable.SelectedIndex == 3)
+                {
+                    chooseTable = ChooseTable.Log;
+                }
 
+            }
         }
+        
 
         private void CboAnalysisType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            // Check that an option has been selected.
+            // The default selection will remain as please select if no option selected
+            if (cboAnalysisType.SelectedIndex > 0)
+            {
+                if (cboAnalysisType.SelectedIndex == 1)
+                {
+                    analysisType = AnalysisType.Summary;
+                }
+                if (cboAnalysisType.SelectedIndex == 2)
+                {
+                    analysisType = AnalysisType.Count;
+                }
+                if (cboAnalysisType.SelectedIndex == 3)
+                {
+                    analysisType = AnalysisType.Statistics;
+                }
+            }
         }
+
+        private void BtnAnalyze_Click(object sender, RoutedEventArgs e)
+        {
+            // Clear Variables. 
+            // Project count shows number of projects on system
+            int projectCount = 0;
+            string output = "";
+            tbkAnalysis.Text = "";
+            if (analysisType == AnalysisType.Summary && chooseTable == ChooseTable.Project)
+            {
+                foreach (var item in projects)
+                {
+                    // Increment count
+                    recordCount++;
+                    output = output + Environment.NewLine + $"Record {recordCount} for projects named {item.ProjectName}" + Environment.NewLine;
+                }
+                output = output + Environment.NewLine + $"total number of records = {recordCount}" + Environment.NewLine;
+                tbkAnalysis.Text = output; 
+            }
+            if (analysisType == AnalysisType.Summary && chooseTable == ChooseTable.User)
+            {
+                int level1CountSummary = 0;
+                int level2CountSummary = 0;
+                foreach (var item in users)
+                {
+                    recordCount++;
+                    output = output + Environment.NewLine + $"record {recordCount} is for the user" +
+                        $"whose name is {item.Firstname}, {item.Surname}, with username {item.Username}. This" +
+                        $"user has access level {item.LevelID} which is for {item.AccessLevel.UserType} usertype" +
+                        $"role." + Environment.NewLine;
+
+                    if (item.LevelID == 1)
+                    {
+                        level1CountSummary++;
+                    }
+                    if (item.LevelID == 2)
+                    {
+                        level2CountSummary++;
+                    }
+                }
+                output = output + Environment.NewLine + $"Total users with level 1 access is {level1CountSummary}." +
+                    Environment.NewLine;
+                output = output + Environment.NewLine + $"Total users with level 2 access is {level2CountSummary}." +
+                    Environment.NewLine;
+                output = output + Environment.NewLine + $"total number of records = {recordCount}";
+                tbkAnalysis.Text = output;
+            }
+            if (analysisType == AnalysisType.Summary && chooseTable == ChooseTable.Log)
+            {
+                foreach (var item in logs)
+                {
+                    recordCount++;
+                    output = output + Environment.NewLine + $"Record {recordCount} is for Log" +
+                        $"created by {item.User.Firstname}, {item.User.Surname} whose user " +
+                        $"ID is {item.UserID}. Log was created on {item.Date}. " +
+                        $"This log is registered for the {item.Category} category. " +
+                        $"The description of this log is {item.Description}" + Environment.NewLine;
+                    output = output + Environment.NewLine + $"total number of records = {recordCount}";
+                    tbkAnalysis.Text = output;
+                }
+            }
+        }   
+
     }
 }
