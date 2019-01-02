@@ -212,7 +212,7 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <ScrollViewer Height="200" Grid.Row="0" Grid.ColumnSpan="1" Margin="5">
+                        <ScrollViewer Height="200" Width="400" Grid.Row="0" Margin="5">
                             <TextBlock Name="tbkAnalysis" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                         </ScrollViewer>
                         <StackPanel Grid.Row="0" Grid.Column="1"  VerticalAlignment="Top">
@@ -234,14 +234,14 @@
                                          FontWeight="Bold"/>
 
                                 <!-- Row 1-->
-                                <ComboBox Name="cboAnalysisType" Margin="10" Grid.Row="1" Grid.Column="0" Width="150" Height="30" SelectionChanged="CboAnalysisType_SelectionChanged" SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
+                                <ComboBox Name="cboAnalysisType" Margin="5" Grid.Row="1" Grid.Column="0" Width="140" Height="30" SelectionChanged="CboAnalysisType_SelectionChanged" SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
                                     <ComboBoxItem Content="Please select"/>
                                     <ComboBoxItem Content="Summary"/>
                                     <ComboBoxItem Content="Count"/>
                                     <ComboBoxItem Content="Statistics"/>
                                 </ComboBox>
 
-                                <ComboBox Name="cboChooseTable" Margin="10"  Grid.Row="1" Grid.Column="2" Width="150" Height="30" SelectionChanged="CboChooseTable_SelectionChanged"  SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
+                                <ComboBox Name="cboChooseTable" Margin="5"  Grid.Row="1" Grid.Column="2" Width="140" Height="30" SelectionChanged="CboChooseTable_SelectionChanged"  SelectedIndex="0" FontFamily="Calibri" FontWeight="Bold" FontSize="12">
                                     <ComboBoxItem Content="Please select"/>
                                     <ComboBoxItem Content="Project"/>
                                     <ComboBoxItem Content="User"/>
@@ -249,7 +249,7 @@
                                 </ComboBox>
 
                                 <!--Row 2-->
-                                <Button Name="btnAnalyze" Content="Analyze" Click="BtnAnalyze_Click"  Grid.Row="2" Grid.Column="1" Height="30" Width="150" Margin="10" BorderThickness="2" Background="#FFF1ED64" FontFamily="Calibri" 
+                                <Button Name="btnAnalyze" Content="Analyze" Click="BtnAnalyze_Click"  Grid.Row="2" Grid.Column="1" Height="26" Width="50" Margin="10" BorderThickness="2" Background="#FFF1ED64" FontFamily="Calibri" 
                                          FontWeight="Bold"/>
                             </Grid>
 
