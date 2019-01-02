@@ -79,6 +79,8 @@
                                     
                                 </StackPanel>
                             </Border>
+                            
+                            <!-- User Bio section layout and buttons -->
                             <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" >
                                 <Button Name="btnEdit" Click="BtnEdit_Click" Content="Edit" Height="20" Width="50" 
                                  Margin="5" 
@@ -93,6 +95,8 @@
                                  FontFamily="Calibri" 
                                  FontWeight="Bold" Background="#FFF1ED64">
                                 </Button>
+                                
+                                <!-- User Bio Section -->
                                 <StackPanel Height="150">
                                     <Label FontFamily="Calibri" 
                                      FontWeight="Bold" Content="Bio:"/>
@@ -101,9 +105,10 @@
                                             <ListView.View>
                                                 <GridView>
                                                     <GridViewColumn>
-                                                        <TextBox TextWrapping="Wrap" Text="{Binding UserProfile}">
+                                                        <TextBlock Padding="10" TextWrapping="Wrap" Text="{Binding UserProfile}">
 
-                                                        </TextBox>
+                                                        </TextBlock>
+                                                        
                                                     </GridViewColumn>
                                                 </GridView>
                                             </ListView.View>

@@ -148,6 +148,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>-->
                                 </GridView>
+                                <!--User list with submenus-->
                             </ListView.View>
                             <ListView.ContextMenu>
                                 <ContextMenu Name="mnuUserList" IsEnabled="True">
@@ -218,13 +219,13 @@
                         <StackPanel Grid.Row="0" Grid.Column="1"  VerticalAlignment="Top">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Row 0-->
