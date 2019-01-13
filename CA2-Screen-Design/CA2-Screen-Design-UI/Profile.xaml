@@ -59,7 +59,7 @@
                             </Grid.ColumnDefinitions>
                             <Border Padding="1" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
                                 
-                                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Background="#FFDAECF0" >
+                                <StackPanel Height="50" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Background="#FFDAECF0" >
                                     
 
                                     <Image Source="Images/Profile icon.png" Height="30" Width="50" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
@@ -90,31 +90,36 @@
                                 </Button>
 
                                 <Button Name="btnSave" Click="BtnSave_Click"  Content="Save" Height="20" Width="50" 
-                                 Margin="10,5" 
+                                 Margin="5" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
                                  FontWeight="Bold" Background="#FFF1ED64">
                                 </Button>
                                 
                                 <!-- User Bio Section -->
-                                <StackPanel Height="150">
+                                <StackPanel Height="100">
                                     <Label FontFamily="Calibri" 
                                      FontWeight="Bold" Content="Bio:"/>
-                                    <Border Padding="2" BorderThickness="1" BorderBrush="Gray" CornerRadius="1">
+                                    
                                         <ListView Name="lstUserBio" SelectionChanged="LstUserBio_SelectionChanged">
                                             <ListView.View>
                                                 <GridView>
                                                     <GridViewColumn>
-                                                        <TextBlock Padding="10" TextWrapping="Wrap" Text="{Binding UserProfile}">
+                                                        <TextBlock Height="50" Padding="5" TextWrapping="Wrap" Text="{Binding Bio}">
 
                                                         </TextBlock>
                                                         
+                                                        
                                                     </GridViewColumn>
+                                                   
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
                                         
-                                    </Border>
+                                    
+                                    <TextBox Name="tbxBioInput" Height="50">
+                                        
+                                    </TextBox>
                                 </StackPanel>
                             </StackPanel>
                             

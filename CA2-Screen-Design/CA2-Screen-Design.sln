@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA2-Screen-Design-UI", "CA2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "DatabaseLibrary\DatabaseLibrary.csproj", "{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary.Tests", "DatabaseLibrary.Tests\DatabaseLibrary.Tests.csproj", "{A139C4EA-166C-4F0C-A120-FD0805FAF840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCE3C3B-77C1-47FA-88A6-FE326A84AF13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A139C4EA-166C-4F0C-A120-FD0805FAF840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A139C4EA-166C-4F0C-A120-FD0805FAF840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A139C4EA-166C-4F0C-A120-FD0805FAF840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A139C4EA-166C-4F0C-A120-FD0805FAF840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

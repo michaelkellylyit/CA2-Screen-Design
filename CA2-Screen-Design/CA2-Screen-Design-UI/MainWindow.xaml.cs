@@ -25,6 +25,7 @@ namespace CA2_Screen_Design_UI
     {
         CaProjectEntities db = new CaProjectEntities("metadata=res://*/CaProjectModel.csdl|res://*/CaProjectModel.ssdl|res://*/CaProjectModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.8;initial catalog=CA3-Project-Database-L00137447;user id=MichaelKelly;password=303808909m@;pooling=False;MultipleActiveResultSets=True;App=EntityFramework'");
 
+        LoginProcess loginProcess = new LoginProcess();
         
 
         public MainWindow()
@@ -50,7 +51,7 @@ namespace CA2_Screen_Design_UI
             bool credentialsValidated = false;
             string currentUser = tbxUsername.Text;
             string currentPassword = tbxPassword.Password;
-            credentialsValidated = ValidatedUserInput(currentUser, currentPassword); 
+            credentialsValidated = loginProcess.ValidatedUserInput(currentUser, currentPassword); 
             if (credentialsValidated)
             {
                 validatedUser = GetUserRecord(currentUser, currentPassword);
@@ -76,56 +77,9 @@ namespace CA2_Screen_Design_UI
             {
                 MessageBox.Show("Username & Password error, Please re-enter.", "User Login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //if (login)
-            //{
-            //    CreateLogEntry("Login", "Login Successful.", validatedUser.UserID, validatedUser.Username);
-            //    Dashboard dashboard = new Dashboard
-            //    {
-            //        user = validatedUser,
-            //        Owner = this
-            //    };
-            //    dashboard.ShowDialog();
-            //    this.Hide();
-            //}
-            //else
-            //{
-            //    CreateLogEntry("Login", "Unsuccessful Login.", 0, currentUser);
-            //}
+            
         }
-        /// <summary>
-        /// Validates user credentials against those in the database.
-        /// </summary>
-        /// <param name="username"></param>
-        /// Username entered by user.
-        /// <param name="password"></param>
-        /// Password entered by user.
-        /// <returns>
-        /// Validated user.
-        /// </returns>
-        private bool ValidatedUserInput(string username, string password)
-        {
-            bool validated = true;
-            if (username.Length == 0 || username.Length > 30)
-            {
-                validated = false;
-            }
-            // Check each character of username for a number
-            // System does not allow numbers in username
-            foreach (char ch in username)
-            {
-                if (ch >= '0' && ch <= '9')
-                {
-                    validated = false;
-                }
-            }
-            // Password is required
-            // Must be under 30 characters
-            if (password.Length == 0 || password.Length >30)
-            {
-                validated = false;
-            }
-            return validated; 
-        }
+        
         /// <summary>
         /// Validates user credentials against those in database
         /// </summary>
