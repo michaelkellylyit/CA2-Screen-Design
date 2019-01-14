@@ -277,14 +277,14 @@
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnEdit2_Click">
+                                 FontWeight="Bold" Background="#FFF1ED64" >
                                 </Button>
 
                                 <Button Name="btnSave2" Content="Save" Height="26" Width="80" 
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnSave2_Click">
+                                 FontWeight="Bold" Background="#FFF1ED64" >
                                 </Button>
                                 <StackPanel Height="150" >
                                     <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
