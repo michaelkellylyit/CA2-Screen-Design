@@ -46,7 +46,8 @@ namespace CA2_Screen_Design_UI
             this.Close();
             Environment.Exit(0);
         }
-        // Enables visibilty on the Admin option
+        // Enables visibilty on the Admin option when logged as Admin
+        // Admin is always level 1
         private void CheckUserAccess(User user)
         {
             if (user.LevelID == 1)

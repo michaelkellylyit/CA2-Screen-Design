@@ -226,7 +226,7 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841" Visibility="Visible" Click="BtnUpload1_Click">
+                                         HorizontalAlignment="Right" Background="#FFF36841" Visibility="Collapsed" Click="BtnUpload1_Click">
                                         
                                     </Button>
                                     <Button Name="btnDownload1" Content="Download" Height="26" Width="60" Margin="10"
@@ -234,7 +234,7 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841">
+                                         HorizontalAlignment="Right" Background="#FFF36841" Visibility="Collapsed">
 
                                     </Button>
                                 </StackPanel>
@@ -259,7 +259,7 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841" Click="BtnUpload2_Click">
+                                         HorizontalAlignment="Right" Background="#FFF36841" Visibility="Collapsed" Click="BtnUpload2_Click">
 
                                     </Button>
                                     <Button Name="btnDownload2" Content="Download" Height="26" Width="60" Margin="10"
@@ -267,24 +267,24 @@
                                          FontFamily="Calibri" 
                                          FontWeight="Bold"
                                          VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Right" Background="#FFF36841">
+                                         HorizontalAlignment="Right" Visibility="Collapsed" Background="#FFF36841">
 
                                     </Button>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                <Button Name="btnEdi" Content="Edit" Height="26" Width="80" 
+                                <Button Name="btnEdit2" Content="Edit" Height="26" Width="80" 
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64">
+                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnEdit2_Click">
                                 </Button>
 
-                                <Button Name="btnSav" Content="Save" Height="26" Width="80" 
+                                <Button Name="btnSave2" Content="Save" Height="26" Width="80" 
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64">
+                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnSave2_Click">
                                 </Button>
                                 <StackPanel Height="150" >
                                     <Border Padding="5" BorderThickness="2" BorderBrush="Gray" CornerRadius="1">
@@ -299,18 +299,18 @@
 
 
                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                <Button Name="btndi" Content="Edit" Height="26" Width="80" 
+                                <Button Name="btnEdit1" Content="Edit" Height="26" Width="80" 
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64">
+                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnEdit1_Click"  >
                                 </Button>
 
-                                <Button Name="btnSv" Content="Save" Height="26" Width="80" 
+                                <Button Name="btnSave1" Content="Save" Height="26" Width="80" 
                                  Margin="10,10" 
                                  BorderThickness="2" 
                                  FontFamily="Calibri" 
-                                 FontWeight="Bold" Background="#FFF1ED64">
+                                 FontWeight="Bold" Background="#FFF1ED64" Click="btnSave1_Click">
                                 </Button>
                                 
                                 <StackPanel Height="150">

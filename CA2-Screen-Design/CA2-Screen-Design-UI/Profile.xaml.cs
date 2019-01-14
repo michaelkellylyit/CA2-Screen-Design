@@ -172,14 +172,24 @@ namespace CA2_Screen_Design_UI
         }
         private void BtnCreateProj2_Click(object sender, RoutedEventArgs e)
         {
-
+            btnUpload2.Visibility = Visibility.Visible;
+            btnDownload2.Visibility = Visibility.Visible;
         }
 
         private void BtnCreateproj1_Click(object sender, RoutedEventArgs e)
         {
+            btnUpload1.Visibility = Visibility.Visible;
+            btnDownload1.Visibility = Visibility.Visible;
+        }
+
+        private void btnEdit1_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
-        
+        private void btnSave1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
