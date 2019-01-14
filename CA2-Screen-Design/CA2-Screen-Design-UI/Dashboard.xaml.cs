@@ -40,13 +40,13 @@ namespace CA2_Screen_Design_UI
         {
 
         }
-
+        // Logout button, closes the application
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             Environment.Exit(0);
         }
-
+        // Enables visibilty on the Admin option
         private void CheckUserAccess(User user)
         {
             if (user.LevelID == 1)
@@ -75,13 +75,13 @@ namespace CA2_Screen_Design_UI
             MessageBox.Show("Menu option is checked");
         }
 
-
+        // Admin button bring up admin options
         private void MnuAdminControl_Click(object sender, RoutedEventArgs e)
         {
             Admin admin = new Admin();
             frmMain.Navigate(admin);
         }
-
+        // Home button switches users to profile view
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
             Profile profile = new Profile();
